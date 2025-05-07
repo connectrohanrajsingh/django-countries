@@ -1,0 +1,122 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}
+  Countries Information
+{% endblock %}
+{% block body %}
+  <main class="main">
+    <!-- About Section -->
+    <section id="about" class="section">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row mt-4">
+          <div class="col-lg-6 card shadow p-3 m-auto">
+            <img src="{{ countryDetails.flags.svg }}" class="img-fluid" alt="{{ countryDetails.flags.alt }}" width="100%" />
+            <hr />
+            <p class="text-center mt-2 h5">{{ countryDetails.flags.alt }}</p>
+          </div>
+        </div>
+
+        <div class="row mt-4">
+          <div class="col-xl-5 col-lg-5 col-11 border border-1 border-light p-2 m-auto">
+            <h5 class="text-center fw-bold">Country Information</h5>
+            <hr />
+            <div class="row">
+              <div class="col-xl-4 col-lg-4 col-4">Common Name:</div>
+              <div class="col-xl-8 col-lg-8 col-8">{{ countryDetails.name.common }}</div>
+            </div>
+            <div class="row">
+              <div class="col-xl-4 col-lg-4 col-4">Official Name:</div>
+              <div class="col-xl-8 col-lg-8 col-8">{{ countryDetails.name.official }}</div>
+            </div>
+            <div class="row">
+              <div class="col-xl-4 col-lg-4 col-4">Capital:</div>
+              <div class="col-xl-8 col-lg-8 col-8">
+                {% for capital in countryDetails.capital %}
+                  {{ capital }}
+                {% endfor %}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xl-4 col-lg-4 col-4">Independent:</div>
+              <div class="col-xl-8 col-lg-8 col-8">
+                {% if countryDetails.independent %}
+                  Yes
+                {% else %}
+                  No
+                {% endif %}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xl-4 col-lg-4 col-4">UN Member:</div>
+              <div class="col-xl-8 col-lg-8 col-8">
+                {% if countryDetails.unMember %}
+                  Yes
+                {% else %}
+                  No
+                {% endif %}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xl-4 col-lg-4 col-4">Landlocked:</div>
+              <div class="col-xl-8 col-lg-8 col-8">
+                {% if countryDetails.landlocked %}
+                  Yes
+                {% else %}
+                  No
+                {% endif %}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xl-5 col-lg-5 col-11 border border-1 border-light p-2 m-auto">
+            <h5 class="text-center fw-bold">Region Details</h5>
+            <hr />
+            <div class="row">
+              <div class="col-xl-4 col-lg-4 col-4">Region:</div>
+              <div class="col-xl-8 col-lg-8 col-8">{{ countryDetails.region }}</div>
+            </div>
+            <div class="row">
+              <div class="col-xl-4 col-lg-4 col-4">Sub Region:</div>
+              <div class="col-xl-8 col-lg-8 col-8">{{ countryDetails.subregion }}</div>
+            </div>
+            <div class="row">
+              <div class="col-xl-4 col-lg-4 col-4">area :</div>
+              <div class="col-xl-8 col-lg-8 col-8">{{ countryDetails.area }}</div>
+            </div>
+            <div class="row">
+              <div class="col-xl-4 col-lg-4 col-4">Independent :</div>
+              <div class="col-xl-8 col-lg-8 col-8">
+                {% if countryDetails.independent %}
+                  Yes
+                {% else %}
+                  No
+                {% endif %}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xl-4 col-lg-4 col-4">UN Member :</div>
+              <div class="col-xl-8 col-lg-8 col-8">
+                {% if countryDetails.unMember %}
+                  Yes
+                {% else %}
+                  No
+                {% endif %}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xl-4 col-lg-4 col-4">Landlocked :</div>
+              <div class="col-xl-8 col-lg-8 col-8">
+                {% if countryDetails.landlocked %}
+                  Yes
+                {% else %}
+                  No
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+{% endblock %}
