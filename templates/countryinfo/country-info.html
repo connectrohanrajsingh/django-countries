@@ -8,112 +8,106 @@
   <main class="main">
     <!-- About Section -->
     <section id="about" class="section">
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
+      <div class="container p-4 border border-1 border-light" data-aos="fade-up" data-aos-delay="100">
         <div class="row mt-4">
-          <div class="col-lg-6 card shadow p-3 m-auto">
-            <img src="{{ countryDetails.flags.svg }}" class="img-fluid" alt="{{ countryDetails.flags.alt }}" width="100%" />
-            <hr />
-            <p class="text-center mt-2 h5">{{ countryDetails.flags.alt }}</p>
+          <div class="col-xl-6 col-lg-6 col-11 p-2 card shadow">
+            <img src="{{ countryDetails.flags.svg }}" class="img-fluid" alt="{{ countryDetails.flags.alt }}" width="100%" style="max-height:30vh" />
           </div>
+          <div class="col-xl-5 col-lg-5 col-11 p-2 mt-3 m-auto card shadow">
+            <table class="w-100 table table-light" style="max-height:30vh">
+              <tr>
+                <th colspan="2" class="text-center">Country Information</th>
+              </tr>
+              <tr>
+                <th>Common Name:</th>
+                <td>{{ countryDetails.name.common }}</td>
+              </tr>
+              <tr>
+                <th>Official Name:</th>
+                <td>{{ countryDetails.name.official }}</td>
+              </tr>
+              <tr>
+                <th>Capital:</th>
+                <td>
+                  {% for capital in countryDetails.capital %}
+                    {{ capital }}
+                  {% endfor %}
+                </td>
+              </tr>
+              <tr>
+                <th>Independent:</th>
+                <td>
+                  {% if countryDetails.independent %}
+                    Yes
+                  {% else %}
+                    No
+                  {% endif %}
+                </td>
+              </tr>
+              <tr>
+                <th>UN Member:</th>
+                <td>
+                  {% if countryDetails.unMember %}
+                    Yes
+                  {% else %}
+                    No
+                  {% endif %}
+                </td>
+              </tr>
+              <tr>
+                <th>Landlocked:</th>
+                <td>
+                  {% if countryDetails.landlocked %}
+                    Yes
+                  {% else %}
+                    No
+                  {% endif %}
+                </td>
+              </tr>
+            </table>
+          </div>
+          <p class="text-center mt-4 h5 p-2 card shadow">{{ countryDetails.flags.alt }}</p>
         </div>
 
         <div class="row mt-4">
-          <div class="col-xl-5 col-lg-5 col-11 border border-1 border-light p-2 m-auto">
-            <h5 class="text-center fw-bold">Country Information</h5>
-            <hr />
-            <div class="row">
-              <div class="col-xl-4 col-lg-4 col-4">Common Name:</div>
-              <div class="col-xl-8 col-lg-8 col-8">{{ countryDetails.name.common }}</div>
-            </div>
-            <div class="row">
-              <div class="col-xl-4 col-lg-4 col-4">Official Name:</div>
-              <div class="col-xl-8 col-lg-8 col-8">{{ countryDetails.name.official }}</div>
-            </div>
-            <div class="row">
-              <div class="col-xl-4 col-lg-4 col-4">Capital:</div>
-              <div class="col-xl-8 col-lg-8 col-8">
-                {% for capital in countryDetails.capital %}
-                  {{ capital }}
-                {% endfor %}
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-xl-4 col-lg-4 col-4">Independent:</div>
-              <div class="col-xl-8 col-lg-8 col-8">
-                {% if countryDetails.independent %}
-                  Yes
-                {% else %}
-                  No
-                {% endif %}
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-xl-4 col-lg-4 col-4">UN Member:</div>
-              <div class="col-xl-8 col-lg-8 col-8">
-                {% if countryDetails.unMember %}
-                  Yes
-                {% else %}
-                  No
-                {% endif %}
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-xl-4 col-lg-4 col-4">Landlocked:</div>
-              <div class="col-xl-8 col-lg-8 col-8">
-                {% if countryDetails.landlocked %}
-                  Yes
-                {% else %}
-                  No
-                {% endif %}
-              </div>
-            </div>
-          </div>
-
-          <div class="col-xl-5 col-lg-5 col-11 border border-1 border-light p-2 m-auto">
-            <h5 class="text-center fw-bold">Region Details</h5>
-            <hr />
-            <div class="row">
-              <div class="col-xl-4 col-lg-4 col-4">Region:</div>
-              <div class="col-xl-8 col-lg-8 col-8">{{ countryDetails.region }}</div>
-            </div>
-            <div class="row">
-              <div class="col-xl-4 col-lg-4 col-4">Sub Region:</div>
-              <div class="col-xl-8 col-lg-8 col-8">{{ countryDetails.subregion }}</div>
-            </div>
-            <div class="row">
-              <div class="col-xl-4 col-lg-4 col-4">area :</div>
-              <div class="col-xl-8 col-lg-8 col-8">{{ countryDetails.area }}</div>
-            </div>
-            <div class="row">
-              <div class="col-xl-4 col-lg-4 col-4">Independent :</div>
-              <div class="col-xl-8 col-lg-8 col-8">
-                {% if countryDetails.independent %}
-                  Yes
-                {% else %}
-                  No
-                {% endif %}
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-xl-4 col-lg-4 col-4">UN Member :</div>
-              <div class="col-xl-8 col-lg-8 col-8">
-                {% if countryDetails.unMember %}
-                  Yes
-                {% else %}
-                  No
-                {% endif %}
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-xl-4 col-lg-4 col-4">Landlocked :</div>
-              <div class="col-xl-8 col-lg-8 col-8">
-                {% if countryDetails.landlocked %}
-                  Yes
-                {% else %}
-                  No
-                {% endif %}
-              </div>
-            </div>
+          <div class="col-xl-4 col-lg-4 col-11 p-2 mt-3 m-auto card shadow">
+            <table class="w-100 table table-light">
+              <tr>
+                <th colspan="2" class="text-center">Region Details</th>
+              </tr>
+              <tr>
+                <th>Continent:</th>
+                <td>
+                  {% for continent in countryDetails.continents %}
+                    {{ continent }}
+                  {% endfor %}
+                </td>
+              </tr>
+              <tr>
+                <th>Region:</th>
+                <td>{{ countryDetails.region }}</td>
+              </tr>
+              <tr>
+                <th>Sub Region:</th>
+                <td>{{ countryDetails.subregion }}</td>
+              </tr>
+              <tr>
+                <th>Area:</th>
+                <td>{{ countryDetails.area }}</td>
+              </tr>
+              <tr>
+                <th>Population:</th>
+                <td>{{ countryDetails.population }}</td>
+              </tr>
+              <tr>
+                <th>Timezones:</th>
+                <td>
+                  {% for timezone in countryDetails.timezones %}
+                    {{ timezone }}
+                  {% endfor %}
+                </td>
+              </tr>
+            </table>
           </div>
         </div>
       </div>
